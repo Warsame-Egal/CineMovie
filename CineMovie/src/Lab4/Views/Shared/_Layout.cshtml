@@ -1,0 +1,29 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @section Styles {
+    }
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+
+</head>
+<body>
+    <header>
+        <h3>Movies Database</h3>
+        <a asp-controller="Home" asp-action="Index">Home</a>
+        <a asp-controller="Home" asp-action="AddMovie">Add Movie</a>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>
+        &copy; 2016 - Warsame Egal
+        <br />
+        <br />
+    </footer>
+</body>
+</html>

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Lab4.Models.Movie>
+
+@{
+    Layout = "_Layout";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div>
+        <style>
+            tr {
+                vertical-align: central;
+                text-align: center;
+            }
+        </style>
+
+        <h2>Home</h2>
+        <table style="width: 100%;">
+            <tr>
+                <th>
+                    Options
+                </th>
+                <th>
+                    Movie Title
+                </th>
+                <th>
+                    Movie SubTitle
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    Year
+                </th>
+                <th>
+                    Rating
+                </th>
+            </tr>
+            <tr>
+
+                @if (Model == null || Model.Count() == 0)
+                {
+                    <h4>Currently, there are no movies to display.</h4>
+                }
+
+                else
+                {
+                    @foreach (var item in Model)
+                    {
+                        <td>
+                            <a asp-controller="Home" asp-action="Edit" asp-route-id="@item.MovieId">Edit</a>
+                            <br />
+                            <br />
+                            <a onclick="return confirm('Are you sure?');" asp-controller="Home" asp-action="DeleteMovie" asp-route-id="@item.MovieId">Delete</a>
+                        </td>
+                        <td>
+                            <p>@item.Title &nbsp;</p>
+                        </td>
+                        <td>
+                            <p>@item.SubTitle &nbsp;</p>
+                        </td>
+                            <td>
+                                <p>@item.Description &nbsp;</p>
+                            </td>
+                            <td>
+                                <p>@item.Year &nbsp;</p>
+                            </td>
+                            <td>
+                                <p>@item.Rating &nbsp;</p>
+                            </td>
+                    }
+                }
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

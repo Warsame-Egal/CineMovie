@@ -1,0 +1,32 @@
+﻿@model Lab4.Models.Movie
+@{
+    Layout = "_Layout";
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <h2>Add Movie</h2>
+
+    <form asp-controller="Home" asp-action="CreateMovie">
+
+        Title: <input asp-for="Title" />
+        <br />
+        Sub Title <input asp-for="SubTitle" />
+        <br />
+        Description <input asp-for="Description" />
+        <br />
+        Year <input asp-for="Year" />
+        <br />
+        Rating <input asp-for="Rating" />
+        <br />
+        <br />
+        <br />
+        <input type="submit" value="Add Movie" />
+    </form>
+    <br />
+    <br />
+    <br />
+</body>
+</html>
